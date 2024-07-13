@@ -9,3 +9,8 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+val Ivory = Color(0xFFEFE7D3)
+val Pewter = Color(0xFFECE3F0)
+val Lilac = Color(0xFFD3BBDD)
+val Rosewater = Color(0xFFF8C0C8)
