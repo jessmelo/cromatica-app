@@ -1,6 +1,7 @@
 package io.github.jessmelo.cromatica.data
 
 enum class ChromaticScalePitch(val frequency: Double, val noteName: String) {
+    UNDEFINED(0.0, "-"),
     C1(32.703, "C1"),
     C1_SHARP(34.648, "C1# (Db1)"),
     D1(36.708, "D1"),
@@ -74,10 +75,24 @@ enum class ChromaticScalePitch(val frequency: Double, val noteName: String) {
     A6_SHARP(1864.655, "A6# (Bb6)"),
     B6(1975.533, "B6"),
     C7(2093.005, "C7"),
-    C7_SHARP(2217.461, "C7# (Db7)")
+    C7_SHARP(2217.461, "C7# (Db7)"),
+    D7(2349.318, "D7"),
+    D7_SHARP(2489.016, "D7# (Eb7)"),
+    E7(2637.020, "E7"),
+    F7(2793.826, "F7"),
+    F7_SHARP(2959.955, "F7# (Gb7)"),
+    G7(3135.963, "G7"),
+    G7_SHARP(3322.438, "G7# (Ab7)"),
+    A7(3520.000, "A7"),
+    A7_SHARP(3729.310, "A7# (Bb7)"),
+    B7(3951.066, "B7"),
+    C8(4186.009, "C8"),
 }
 
 fun getPitch(frequency: Double): ChromaticScalePitch {
+    if (frequency < ChromaticScalePitch.C1.frequency || frequency > ChromaticScalePitch.C8.frequency) {
+        return ChromaticScalePitch.UNDEFINED
+    }
     return ChromaticScalePitch.entries.toTypedArray()
         .minByOrNull { kotlin.math.abs(it.frequency - frequency) }!!
 }

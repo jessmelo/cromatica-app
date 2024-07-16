@@ -22,7 +22,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -70,4 +71,7 @@ dependencies {
 
     // Math library
     implementation(libs.apache.commons.math3)
+
+    // Google Fonts
+    implementation(libs.androidx.ui.text.google.fonts)
 }
