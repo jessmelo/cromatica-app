@@ -56,7 +56,7 @@ class AudioProcessor(private val context: Context) {
 
     fun startRecording() {
         if (_audioRecord.value == null) {
-            return
+            restartAudioRecord()
         }
         val buffer = ShortArray(bufferSize)
         (_audioRecord.value as AudioRecord).startRecording()
@@ -78,13 +78,16 @@ class AudioProcessor(private val context: Context) {
                 }
                 delay(150)
             }
-            _audioRecord.value!!.stop()
-            _audioRecord.value!!.release()
         }.start()
     }
 
     fun stopRecording() {
         isRecording = false
+        (_audioRecord.value is AudioRecord).let {
+            _audioRecord.value?.stop()
+            _audioRecord.value?.release()
+            _audioRecord.value = null
+        }
     }
 
     private fun fft(buffer: ShortArray): DoubleArray {

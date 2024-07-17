@@ -1,4 +1,4 @@
-package io.github.jessmelo.cromatica.ui.screens
+package io.github.jessmelo.cromatica.ui.screens.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
